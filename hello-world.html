@@ -28,9 +28,19 @@
           center: kingsCross,
           zoom: 15
         });
+
+        var contentString = "Hello, i'm here!"
+        var infowindow = new google.maps.InfoWindow({
+          content: contentString
+        });
+
         var marker = new google.maps.Marker({
           position: kingsCross,
-          map: map
+          map: map,
+          title: 'Kings Crossing'
+        });
+        marker.addListener('click', function() {
+          infowindow.open(map, marker);
         });
       }
     </script>
