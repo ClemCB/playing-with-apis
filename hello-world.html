@@ -23,21 +23,23 @@
     <script>
       var map;
       function initMap() {
-        kingsCross = {lat: 51.53088, lng: -0.12289999999995871}
+        heathrow = {lat: 51.470020, lng: -0.4543 }
         map = new google.maps.Map(document.getElementById('map'), {
-          center: kingsCross,
-          zoom: 15
+          center: heathrow,
+          zoom: 10
         });
 
-        var contentString = "Hello, i'm here!"
+
+        var contentString = "Hello, i'm an airport!"
         var infowindow = new google.maps.InfoWindow({
           content: contentString
         });
 
         var marker = new google.maps.Marker({
-          position: kingsCross,
+          position: heathrow,
+          icon: 'https://d30y9cdsu7xlg0.cloudfront.net/png/13088-200.png',
           map: map,
-          title: 'Kings Crossing'
+          title: 'Heathrow'
         });
         marker.addListener('click', function() {
           infowindow.open(map, marker);
@@ -50,11 +52,13 @@
               map: map,
               title: 'Your location'
             });
+            map.panTo(user_marker.getPosition())
+            map.setZoom(15)
           }
         );
       }
     </script>
-    <script src="https://maps.googleapis.com/maps/api/js?key=your_api_key&callback=initMap"
+    <script src="https://maps.googleapis.com/maps/api/js?key=my_api_key&callback=initMap"
     async defer></script>
   </body>
 </html>
